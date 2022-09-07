@@ -42,7 +42,7 @@ def checking_brackets(string: str) -> bool:
             counter += 1
         elif i == ')':
             counter -= 1
-        if counter < 0:
+        if counter != 0:
             return False
     return True
 
