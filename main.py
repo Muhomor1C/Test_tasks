@@ -1,5 +1,5 @@
 def get_most_character_example1(string: str) -> tuple:
-    if not string.isalpha():
+    if (type(string) is not str) or not string.isalpha():
         print('invalid characters in the string')
         return ()
     lower_string = string.lower()
@@ -9,7 +9,7 @@ def get_most_character_example1(string: str) -> tuple:
 
 
 def get_most_character_example2(string: str) -> tuple:
-    if not string.isalpha():
+    if (type(string) is not str) or not string.isalpha():
         print('invalid characters in the string')
         return ()
     sorted_lower_string = sorted(string.lower())
@@ -25,6 +25,9 @@ def get_most_character_example2(string: str) -> tuple:
 
 
 def extract_sqrt(num: int) -> int or None:
+    if not type(num) is int:
+        print('invalid number')
+        return None
     sqrt = pow(abs(num), 0.5)  # or abs(num) ** 0.5
     if sqrt % 1 == 0:
         return int(sqrt)
@@ -33,7 +36,7 @@ def extract_sqrt(num: int) -> int or None:
 
 def checking_brackets(string: str) -> bool:
     # lazy checking in case of a very long string
-    if string.count('(') != string.count(')'):
+    if (type(string) is not str) or string.count('(') != string.count(')'):
         return False
 
     counter = 0
@@ -45,4 +48,3 @@ def checking_brackets(string: str) -> bool:
         if counter < 0:
             return False
     return True
-
